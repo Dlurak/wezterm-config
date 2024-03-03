@@ -1,6 +1,8 @@
 local module = {}
 
-module.shells = {"bash", "zsh"}
 module.username = "dlurak"
+module.shells = {"bash", "zsh"}
+-- battery, hyprland_workspace, time, name, date 
+module.status_modules = { "battery", "hyprland_workspace", "time", "date" }
 
 return module

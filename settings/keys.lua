@@ -2,6 +2,7 @@ local wezterm = require "wezterm"
 local act = wezterm.action
 
 local names = require "../constants/names"
+local global_config = require "config/"
 
 local config = {}
 
@@ -23,10 +24,6 @@ config.keys = {
     {key = "J", mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment},
     {key = "K", mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment},
     {key = "L", mods = "CTRL|SHIFT", action = act.DisableDefaultAssignment},
-
-	{key = "s", mods = "LEADER", action = wezterm.action_callback(function ()
-		names.use_names = not names.use_names
-	end)},
 
 	{
 		key = 'K',

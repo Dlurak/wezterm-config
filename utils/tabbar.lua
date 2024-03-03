@@ -25,7 +25,6 @@ function module.tab_title(tab_info)
     title = pane.title
 
     local process_path = pane.foreground_process_name
-	require("wezterm").log_info(pane.title)
     --- @type string
     local process_name = process_path:match(".+/([^/]+)$") or "unrecognized"
 

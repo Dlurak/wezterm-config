@@ -1,34 +1,20 @@
 local wezterm = require "wezterm"
 local nerdfonts = wezterm.nerdfonts
 
-local utils = require "../utils"
-local commands = require "../utils/command"
-
-local names = require "../constants/names"
+local config = require "config/init"
+local status_modules = require "../utils/modules"
 
 local module = {}
 
-local name = utils.get_random_item(names.names)
-
 local function on_right_status(window)
-    local workspace =
-        nerdfonts.linux_hyprland .. " " .. commands.run_command("hyprctl -j activeworkspace | jq -r '.name'")
-    local battery = commands.battery_display()
-    local date = nerdfonts.fa_clock_o .. " " .. wezterm.strftime "%H:%M:%S"
+	local parts = {}
+	
+	for index, mod in ipairs(config.status_modules) do
+		local fn = status_modules[mod]
+		table.insert(parts, fn() .. "  ")
+	end
 
-    local update = tonumber(wezterm.strftime("%M")) % 5 == 0
-    local min_begins = tonumber(wezterm.strftime("%S")) == 0
-    update = update and min_begins
-
-    if update then
-        name = utils.get_random_item(names.names)
-    end
-
-    local text = battery .. "  " .. workspace .. "  " .. date .. " "
-
-    if names.use_names then
-        text = text .. " " .. name .. " <3 "
-    end
+    local text = table.concat(parts)
 
     window:set_right_status(wezterm.format {{Text = text}})
 end

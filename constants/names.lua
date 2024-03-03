@@ -7,9 +7,8 @@ module.names = {
 	'Hyprland',
 	'WezTerm',
 	'Wayland',
-	'NixOS'
+	'NixOS',
+	'Rust',
 }
-
-module.use_names = true
 
 return module
