@@ -11,17 +11,18 @@ module.mappings = {
     nvim = nerdfonts.custom_neovim .. " NeoVim",
     vim = nerdfonts.custom_vim .. " Vim",
     node = nerdfonts.dev_nodejs_small .. " NodeJS",
-	nix = nerdfonts.linux_nixos .. " NixOS",
-	-- Doesn't need to be correct as for me it is nearly always correct
+    nix = nerdfonts.linux_nixos .. " NixOS",
+    -- Doesn't need to be correct as for me it is nearly always correct
     perl = nerdfonts.md_fishbowl .. " Asciiquarium",
-	["wezterm-gui"] = nerdfonts.dev_terminal .. " Wezterm GUI",
+    ["wezterm-gui"] = nerdfonts.dev_terminal .. " Wezterm GUI",
     v = nerdfonts.custom_v_lang .. " Compiling",
     bash = nerdfonts.cod_terminal_bash .. " ",
-	zsh = nerdfonts.cod_terminal_bash .. " ",
-	git = nerdfonts.dev_git .. " Git",
-	["python3.11"] = nerdfonts.dev_python .. " Python 3.11",
-	peaclock = nerdfonts.fa_clock_o .. " Peaclock",
-	gh = nerdfonts.cod_github_inverted .. " GitHub CLI"
+    zsh = nerdfonts.cod_terminal_bash .. " ",
+    git = nerdfonts.dev_git .. " Git",
+    ["python3.11"] = nerdfonts.dev_python .. " Python 3.11",
+    peaclock = nerdfonts.fa_clock_o .. " Peaclock",
+    gh = nerdfonts.cod_github_inverted .. " GitHub CLI",
+    rustlings = nerdfonts.md_language_rust .. " Rustlings"
 }
 
 local paths = {}
