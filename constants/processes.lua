@@ -35,7 +35,8 @@ paths.mappings = {
     ["/home/" .. username .. "/SoftwareDevelopment/web/copykana"] = "Copykana",
     ["/home/" .. username .. "/SoftwareDevelopment/web/Dlool/frontend"] = "Dlool - Frontend",
     ["/home/" .. username .. "/SoftwareDevelopment/web/Dlool/backend"] = "Dlool - Backend",
-    ["/home/" .. username .. "/SoftwareDevelopment/web/LibreVox"] = "LibreVox"
+    ["/home/" .. username .. "/SoftwareDevelopment/web/LibreVox"] = "LibreVox",
+	["/etc/nixos"] = nerdfonts.linux_nixos .. "  NixOS"
 }
 
 module.paths = paths
