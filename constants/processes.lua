@@ -19,7 +19,9 @@ module.mappings = {
     bash = nerdfonts.cod_terminal_bash .. " ",
 	zsh = nerdfonts.cod_terminal_bash .. " ",
 	git = nerdfonts.dev_git .. " Git",
-	["python3.11"] = nerdfonts.dev_python .. " Python 3.11"
+	["python3.11"] = nerdfonts.dev_python .. " Python 3.11",
+	peaclock = nerdfonts.fa_clock_o .. " Peaclock",
+	gh = nerdfonts.cod_github_inverted .. " GitHub CLI"
 }
 
 local paths = {}
