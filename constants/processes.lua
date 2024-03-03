@@ -28,10 +28,12 @@ local paths = {}
 local username = config.username
 paths.mappings = {
     ["/home/" .. username] = "Home",
+
+	["/home/" .. username .. "/Downloads"] = nerdfonts.md_download .. " Downloads",
+
     ["/home/" .. username .. "/.config"] = "Config",
     ["/home/" .. username .. "/.config/nvim"] = "NeoVim Config",
     ["/home/" .. username .. "/.config/wezterm"] = "Wezterm Config",
-    ["/home/" .. username .. "/.config/waybar"] = "Waybar Config",
     ["/home/" .. username .. "/.config/hypr"] = "Hyprland Config",
     ["/home/" .. username .. "/SoftwareDevelopment/web/Dlool"] = "Dlool",
     ["/home/" .. username .. "/SoftwareDevelopment/web/copykana"] = "Copykana",

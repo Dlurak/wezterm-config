@@ -1,6 +1,7 @@
 local bins = require("../constants/processes")
 local utils = require("../utils")
 local command = require("../utils/command")
+local config = require "config"
 
 local module = {}
 
@@ -41,7 +42,7 @@ function module.tab_title(tab_info)
 
     if (is_ignored) then
         local cwd = pane.current_working_dir.file_path
-        local mapped_cwd = bins.paths.mappings[cwd] or cwd
+        local mapped_cwd = bins.paths.mappings[cwd] or string.gsub(cwd, "/home/" .. config.username, "~")
         return mapped_name .. mapped_cwd
     end
     return mapped_name
