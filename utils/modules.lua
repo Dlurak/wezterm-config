@@ -11,6 +11,9 @@ local module = {
 	hyprland_workspace = function()
 		return nerdfonts.linux_hyprland .. " " .. commands.run_command("hyprctl -j activeworkspace | jq -r '.name'")
 	end,
+	i3_workspace = function()
+		return nerdfonts.linux_i3 .. " " .. commands.run_command("i3-msg -t get_workspaces | jq -r '.[] | select(.focused==true).name'")
+	end,
 	battery = function()
 		return commands.battery_display()
 	end,

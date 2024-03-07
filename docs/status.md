@@ -12,7 +12,11 @@ Show the current battery status, requires `jq` and `upower`.
 
 ## hyprland_workspace
 
-Shows your current hyprland workspace, this only works for hyprland, modules for other window managers aren't available but feel free to open a pr
+Shows your current hyprland workspace, this only works for hyprland.
+
+## i3_workspace
+
+Shows your current i3 workspace, this only works on i3.
 
 ## time
 
