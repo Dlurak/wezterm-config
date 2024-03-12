@@ -26,4 +26,15 @@ function module.get_random_item(table)
     return table[math.random(1, #table)]
 end
 
+function module.shorten_string(str, max_len)
+	local shortend = string.sub(str, 1, max_len - 3)
+	local is_shortend = shortend ~=  str
+
+	if is_shortend then
+		shortend = shortend .. "..."
+	end
+
+	return shortend
+end
+
 return module

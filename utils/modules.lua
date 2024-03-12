@@ -3,7 +3,6 @@ local nerdfonts = wezterm.nerdfonts
 local commands = require "utils/command"
 local utils = require "utils"
 local names = require "constants/names"
-local files = require "utils/files"
 
 local last_name = utils.get_random_item(names.names) .. " <3 "
 
@@ -42,7 +41,7 @@ local module = {
 
 		local percent = math.floor(( (brightness / max) * 100 ) + 0.5)
 
-		local icon = nerdfonts.md_lightbulb 
+		local icon = nerdfonts.md_lightbulb
 
 		local group = math.floor(percent / 10) * 10
 
@@ -50,6 +49,14 @@ local module = {
 		if group == 0 then icon = nerdfonts.md_lightbulb_off end
 
 		return icon .. " " .. percent .. "%"
+	end,
+	music = function()
+		local is_playing = commands.run_command('playerctl status') == 'Playing'
+		local icon = nerdfonts.md_pause
+		if is_playing then icon = nerdfonts.md_play end
+
+		local title = commands.run_command("playerctl metadata title")
+		return nerdfonts.fa_music .. " " .. icon .. " " .. utils.shorten_string(title, 12)
 	end
 }
 

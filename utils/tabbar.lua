@@ -1,15 +1,10 @@
 local bins = require("../constants/processes")
 local utils = require("../utils")
-local command = require("../utils/command")
 local config = require "config"
 
 local module = {}
 
 -- Current working directory
-local basename = function(s)
-    return string.match(s, ":(.*)$")
-end
-
 local hostname = function (s)
 	return string.match(s, "^.*@(.*):")
 end
@@ -42,6 +37,7 @@ function module.tab_title(tab_info)
 
     if (is_ignored) then
         local cwd = pane.current_working_dir.file_path
+	require("wezterm").log_info(cwd)
         local mapped_cwd = bins.paths.mappings[cwd] or string.gsub(cwd, "/home/" .. config.username, "~")
         return mapped_name .. mapped_cwd
     end
