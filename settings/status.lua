@@ -1,5 +1,4 @@
 local wezterm = require "wezterm"
-local nerdfonts = wezterm.nerdfonts
 
 local config = require "config/init"
 local status_modules = require "../utils/modules"
@@ -8,10 +7,14 @@ local module = {}
 
 local function on_right_status(window)
 	local parts = {}
-	
-	for index, mod in ipairs(config.status_modules) do
+
+	for _, mod in ipairs(config.status_modules) do
 		local fn = status_modules[mod]
-		table.insert(parts, fn() .. "  ")
+		local str = fn()
+		if str == "" then goto continue end
+		table.insert(parts, str .. "  ")
+
+	    ::continue::
 	end
 
     local text = table.concat(parts)

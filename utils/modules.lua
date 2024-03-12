@@ -51,11 +51,13 @@ local module = {
 		return icon .. " " .. percent .. "%"
 	end,
 	music = function()
+		local title = commands.run_command("playerctl metadata title")
+		if not title then return "" end
+
 		local is_playing = commands.run_command('playerctl status') == 'Playing'
 		local icon = nerdfonts.md_pause
 		if is_playing then icon = nerdfonts.md_play end
 
-		local title = commands.run_command("playerctl metadata title")
 		return nerdfonts.fa_music .. " " .. icon .. " " .. utils.shorten_string(title, 12)
 	end
 }
