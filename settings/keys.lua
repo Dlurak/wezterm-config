@@ -1,19 +1,16 @@
 local wezterm = require "wezterm"
 local act = wezterm.action
 
-local names = require "../constants/names"
 local global_config = require "config/"
 
 local config = {}
 
-config.leader = {key = "f", mods = "CTRL", timeout_milliseconds = 1000}
+if not global_config.tmux_mode then
+	config.leader = {key = "f", mods = "CTRL", timeout_milliseconds = 1000}
+end
+
 config.keys = {
     {key = "f", mods = "LEADER|CTRL", action = wezterm.action.SendKey {key = "f", mods = "CTRL"}},
-
-    -- {key = "h", mods = "LEADER", action = act.ActivateTabRelative(-1)},
-    -- {key = "j", mods = "LEADER", action = act.ActivateTabRelative(-1)},
-    -- {key = "k", mods = "LEADER", action = act.ActivateTabRelative(1)},
-    -- {key = "l", mods = "LEADER", action = act.ActivateTabRelative(1)},
 
     {key = "t", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain")},
     {key = "w", mods = "LEADER", action = act.CloseCurrentTab {confirm = true}},
@@ -24,7 +21,6 @@ config.keys = {
     {key = "l", mods = "LEADER", action = act.ActivatePaneDirection 'Right'},
 
     {key = "phys:Space", mods = "LEADER", action = act.ActivateCommandPalette},
-
 
 	{
 		key = 'r',

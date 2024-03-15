@@ -1,8 +1,7 @@
 local wezterm = require "wezterm"
+local user_config = require "config"
 
 local config = {max_fps = 60}
-
-config.enable_wayland = false
 
 local utils = require "utils"
 local tab_bar = require "settings/tabbar"
@@ -21,8 +20,12 @@ utils.merge_tables(config, launch_settings)
 utils.merge_tables(config, font_settings)
 utils.merge_tables(config, tab_bar.config)
 
-wezterm.on("format-tab-title", tab_bar.on_format_tab_title)
+if user_config.tmux_mode then
+	config.enable_tab_bar = false
+else
+	wezterm.on("update-right-status", status.on_right_status)
+	wezterm.on("format-tab-title", tab_bar.on_format_tab_title)
+end
 
-wezterm.on("update-right-status", status.on_right_status)
 
 return config

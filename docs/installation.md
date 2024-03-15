@@ -15,3 +15,4 @@ The following fields are available in the `~/.config/wezterm/config/init.lua` fi
 | username       | Your username, this is needed to map directories to pretty names |
 | shells         | Define shells you use here                                       |
 | status_modules | This is documented in [status](/status)                          |
+| tmux_mode      | This optimizes wezterm for the use with tmux                     |
